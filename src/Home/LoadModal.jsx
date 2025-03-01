@@ -32,7 +32,7 @@ const LoadModal = ({handleCloseModal}) => {
             navigate('/');
             handleCloseModal()
         } catch (error) {
-            console.error('Error:', err);
+            console.error('Error:', error); // ✅ Corrected
         }
     }
   return (
