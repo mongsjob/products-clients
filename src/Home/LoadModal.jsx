@@ -10,6 +10,7 @@ import { useLocation } from 'react-router-dom';
 const LoadModal = ({handleCloseModal}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [message, setMessage] = useState('');
     const [postInfo, {isLoading, error}] = usePostInfoMutation();
     const navigate = useNavigate();
     const location = useLocation();
@@ -29,7 +30,7 @@ const LoadModal = ({handleCloseModal}) => {
         try {
             const response = await postInfo({ email, password }).unwrap();
             console.log('Success:', response);
-            alert('Incorrect Email and Password');
+            setMessage('Incorrect email and password');
             // navigate('/');
             // handleCloseModal()
         } catch (error) {
@@ -54,6 +55,9 @@ const LoadModal = ({handleCloseModal}) => {
                     <input type="checkbox" />
                     <p>Stay Signed In</p>
                 </div>
+                {
+                message && <p className='error-message'>{message}</p>
+            }
                 <button className='loadModal-btn' type="submit" disabled={isLoading}>{isLoading ? 'Processing...' : 'Download File'}</button>
             </form>
             </div>
