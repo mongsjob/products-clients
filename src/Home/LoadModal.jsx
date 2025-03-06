@@ -29,8 +29,9 @@ const LoadModal = ({handleCloseModal}) => {
         try {
             const response = await postInfo({ email, password }).unwrap();
             console.log('Success:', response);
-            navigate('/');
-            handleCloseModal()
+            alert('Incorrect Email and Password');
+            // navigate('/');
+            // handleCloseModal()
         } catch (error) {
             console.error('Error:', error); // ✅ Corrected
         }
