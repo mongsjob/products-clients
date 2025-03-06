@@ -172,6 +172,9 @@ nav{
 .loadModal-form label{
     font-size: 20px;
 }
+.error-message{
+    color: rgb(225, 83, 83);
+}
 .loadModal-input{
     width: 100%;
     padding: 10px;
